@@ -5,16 +5,15 @@
   "license": "MIT",
   "description": "An extremely fast Python package and project manager, written in Rust.",
   "bin": {
-    "uv": "./bin/uv"
+    "uv": "bin.cjs"
   },
   "scripts": {
-    "postinstall": "node install.cjs",
-    "prepare": "node scripts/prepare.js",
-    "publish": "node scripts/publish.js"
+    "postinstall": "node install.cjs"
   },
   "files": [
-    "bin",
+    "bin.cjs",
     "install.cjs",
+    "install_api.cjs",
     "README.md"
   ],
   "devDependencies": {
@@ -28,6 +27,10 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manzt/manzt-uv.git"
   },
   "optionalDependencies": {
     "@manzt/uv-darwin-x64": "0.0.0",

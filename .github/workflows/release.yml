@@ -2,11 +2,6 @@ name: Release
 
 on:
   workflow_dispatch:
-    inputs:
-      dryRun:
-        description: "Dry run (no actual publish)"
-        type: boolean
-        default: false
 
 jobs:
   publish:
@@ -27,10 +22,12 @@ jobs:
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org/"
 
+      - run: pnpm install
+
       - name: Prepare platforms
         run: node scripts/prepare.js
 
       - name: Publish packages
-        run: node scripts/publish.js ${{ github.event.inputs.dryRun && '--dry-run' || '' }}
+        run: node scripts/publish.js
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

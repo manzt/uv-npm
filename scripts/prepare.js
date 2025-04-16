@@ -118,7 +118,10 @@ async function preparePackage(pkg, { downloadDir, uvVersion }) {
           "cpu": [pkg.arch],
           "license": "MIT",
           "engines": { "node": ">= 14" },
-          "repository": "https://github.com/manzt/@manzt-uv",
+          "repository": {
+            "type": "git",
+            "url": "git+https://github.com/manzt/manzt-uv.git",
+          },
           "publishConfig": {
             "registry": "https://registry.npmjs.org/",
             "access": "public",
