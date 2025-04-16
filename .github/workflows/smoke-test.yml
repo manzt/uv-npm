@@ -1,0 +1,22 @@
+name: Smoke Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to test (e.g., 0.0.1)"
+        required: true
+        type: string
+
+jobs:
+  test-platforms:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Test npx installation
+        run: npx @manzt/uv@${{ github.event.inputs.version }} --help
