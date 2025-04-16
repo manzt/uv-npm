@@ -1,0 +1,41 @@
+{
+  "name": "@manzt/uv",
+  "version": "0.0.1",
+  "author": "Trevor Manz",
+  "license": "MIT",
+  "description": "An extremely fast Python package and project manager, written in Rust.",
+  "bin": {
+    "uv": "./bin/uv"
+  },
+  "scripts": {
+    "postinstall": "node install.cjs",
+    "prepare": "node scripts/prepare.js",
+    "publish": "node scripts/publish.js"
+  },
+  "files": [
+    "bin",
+    "install.cjs",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "@types/tar": "^6.1.13",
+    "extract-zip": "^2.0.1",
+    "tar": "^6.1.13",
+    "typescript": "^5.8.3"
+  },
+  "type": "module",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "optionalDependencies": {
+    "@manzt/uv-darwin-x64": "0.0.0",
+    "@manzt/uv-darwin-arm64": "0.0.0",
+    "@manzt/uv-linux-x64": "0.0.0",
+    "@manzt/uv-linux-arm64": "0.0.0",
+    "@manzt/uv-win32-x64": "0.0.0",
+    "@manzt/uv-win32-ia32": "0.0.0",
+    "@manzt/uv-win32-arm64": "0.0.0"
+  }
+}

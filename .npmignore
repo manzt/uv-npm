@@ -1,0 +1,7 @@
+.tmp/
+.git/
+.github/
+node_modules/
+platform-packages/
+*.log
+.DS_Store
